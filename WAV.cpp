@@ -22,12 +22,18 @@ const int bits_per_sample = 16;
 const string subchunk2_id = "data";
 const string subchunk2_size =  "----"; 
 
+void write_as_bytes(ofstream &file, int value, int byte_size){
+    file.write(reinterpret_cast<const char*>(&value), byte_size);
+}
+
 
 
 
 int main()
 {
 
+    ofstream wavFile;
+    wavFile.open("test.wav", ios::binary);
 
     return 0;
 }
